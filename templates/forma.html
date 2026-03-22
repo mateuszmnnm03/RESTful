@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Forma Drużyny</title>
+  </head>
+  <body>
+    <h1>Analiza: {{ t.team_name }}</h1>
+
+    <h3>Statystyki ogólne:</h3>
+    <p>Punkty: {{ t.points }} (Średnia na mecz: {{ t.points_avg }})</p>
+    <p>
+      Gole strzelone: {{ t.goals_scored }} (Średnia na mecz: {{ t.goals_avg }})
+    </p>
+    <p>Gole stracone: {{ t.goals_received }}</p>
+
+    <h3>Ostatnie mecze:</h3>
+    <ul>
+      {% for i in range(t.home_team|length) %}
+      <li>
+        <strong>{{ t.tournaments[i] }}</strong>: {{ t.home_team[i] }} {{
+        t.home_goals[i] }} - {{ t.away_goals[i] }} {{ t.away_team[i] }}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <br />
+    <a href="/">← Wróć do wyszukiwarki</a>
+  </body>
+</html>

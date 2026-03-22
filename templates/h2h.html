@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Porównanie H2H</title>
+</head>
+<body>
+    <h1>Porównanie: {{ t1.team_name }} vs {{ t2.team_name }}</h1>
+
+    <h3>Punkty</h3>
+    <p>{{ t1.team_name }}: <span {% if t1.points > t2.points %}style="color: green; font-weight: bold;"{% endif %}>{{ t1.points }}</span></p>
+    <p>{{ t2.team_name }}: <span {% if t2.points > t1.points %}style="color: green; font-weight: bold;"{% endif %}>{{ t2.points }}</span></p>
+
+    <h3>Gole strzelone</h3>
+    <p>{{ t1.team_name }}: <span {% if t1.goals_scored > t2.goals_scored %}style="color: green; font-weight: bold;"{% endif %}>{{ t1.goals_scored }}</span></p>
+    <p>{{ t2.team_name }}: <span {% if t2.goals_scored > t1.goals_scored %}style="color: green; font-weight: bold;"{% endif %}>{{ t2.goals_scored }}</span></p>
+
+    <h3>Gole stracone</h3>
+    <p>{{ t1.team_name }}: <span {% if t1.goals_received < t2.goals_received %}style="color: green; font-weight: bold;"{% endif %}>{{ t1.goals_received }}</span></p>
+    <p>{{ t2.team_name }}: <span {% if t2.goals_received < t1.goals_received %}style="color: green; font-weight: bold;"{% endif %}>{{ t2.goals_received }}</span></p>
+
+    <h3>Gole strzelone w 1. połowie</h3>
+    <p>{{ t1.team_name }}: <span {% if t1.goals_scored_period1 > t2.goals_scored_period1 %}style="color: green; font-weight: bold;"{% endif %}>{{ t1.goals_scored_period1 }}</span></p>
+    <p>{{ t2.team_name }}: <span {% if t2.goals_scored_period1 > t1.goals_scored_period1 %}style="color: green; font-weight: bold;"{% endif %}>{{ t2.goals_scored_period1 }}</span></p>
+
+    <h3>Gole strzelone w 2. połowie</h3>
+    <p>{{ t1.team_name }}: <span {% if t1.goals_scored_period2 > t2.goals_scored_period2 %}style="color: green; font-weight: bold;"{% endif %}>{{ t1.goals_scored_period2 }}</span></p>
+    <p>{{ t2.team_name }}: <span {% if t2.goals_scored_period2 > t1.goals_scored_period2 %}style="color: green; font-weight: bold;"{% endif %}>{{ t2.goals_scored_period2 }}</span></p>
+
+    <br><br>
+    <a href="/">← Wróć do wyszukiwarki</a>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Analizator Sportowy</title>
+  </head>
+  <body>
+    <h2>Forma Drużyny</h2>
+    <form action="/analizuj" method="get">
+      <input
+        type="text"
+        name="team_id"
+        placeholder="ID Drużyny (np. 33)"
+        required
+      />
+      <p>Wybierz liczbę ostatnich meczów do analizy:</p>
+      <input type="radio" id="m5" name="num" value="5" checked />
+      <label for="m5">5</label>
+
+      <input type="radio" id="m10" name="num" value="10" />
+      <label for="m10">10</label>
+
+      <input type="radio" id="m15" name="num" value="15" />
+      <label for="m15">15</label>
+
+      <input type="radio" id="m20" name="num" value="30" />
+      <label for="m30">30</label>
+
+      <br /><br />
+
+      <button type="submit">Sprawdź formę</button>
+    </form>
+    <h2>Porównanie H2H</h2>
+    <form action="/h2h" method="get">
+      <input type="text" name="team1_id" placeholder="ID Drużyny 1" required />
+      <span> VS </span>
+      <input type="text" name="team2_id" placeholder="ID Drużyny 2" required />
+
+      <p>Wybierz liczbę ostatnich meczów do analizy:</p>
+      <input type="radio" id="m5" name="num" value="5" checked />
+      <label for="m5">5</label>
+
+      <input type="radio" id="m10" name="num" value="10" />
+      <label for="m10">10</label>
+
+      <input type="radio" id="m15" name="num" value="15" />
+      <label for="m15">15</label>
+
+      <input type="radio" id="m20" name="num" value="30" />
+      <label for="m30">30</label>
+
+      <br /><br />
+      <button type="submit">Porównaj Drużyny</button>
+    </form>
+
+    <h2>ID Drużyn</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <tr>
+        <th>Drużyna</th>
+        <th>ID</th>
+      </tr>
+      <tr>
+        <td>Cracovia</td>
+        <td>4901</td>
+      </tr>
+      <tr>
+        <td>Rekord Bielsko-Biała</td>
+        <td>212848</td>
+      </tr>
+      <tr>
+        <td>Manchester United</td>
+        <td>35</td>
+      </tr>
+      <tr>
+        <td>Real Madrid</td>
+        <td>2829</td>
+      </tr>
+      <tr>
+        <td>Barcelona</td>
+        <td>2817</td>
+      </tr>
+      <tr>
+        <td>Bayern Munich</td>
+        <td>2672</td>
+      </tr>
+      <tr>
+        <td>Arsenal</td>
+        <td>42</td>
+      </tr>
+      <tr>
+        <td>Manchester City</td>
+        <td>17</td>
+      </tr>
+      <tr>
+        <td>Tottenham Hotspur</td>
+        <td>33</td>
+      </tr>
+      <tr>
+        <td>AC Milan</td>
+        <td>2692</td>
+      </tr>
+    </table>
+  </body>
+</html>

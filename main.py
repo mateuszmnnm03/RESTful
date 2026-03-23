@@ -7,7 +7,7 @@ from fastapi.templating import Jinja2Templates
 
 templates = Jinja2Templates(directory="templates")
 
-app = FastAPI()
+app = FastAPI() # samo generuje dokumentacje swagger ui http://127.0.0.1:8000/docs
 app.mount("/static", StaticFiles(directory="static"), name="static")
 headers = {"Content-Type": "application/json","x-rapidapi-key": "fe42bcb142mshccd913463aa0edep115d55jsne63458aafa83", "x-rapidapi-host": "sportapi7.p.rapidapi.com"}
 
@@ -17,7 +17,10 @@ async def read_root():
 
 @app.get("/analizuj")
 async def analyze(request : Request, team_id: str = "32", num: int = 5):
-    id = int(team_id)
+    try:
+        id = int(team_id)
+    except ValueError:
+        return HTMLResponse(content="<h1>ID drużyny musi być liczbą</h1>", status_code=400)
     url = f"https://sportapi7.p.rapidapi.com/api/v1/team/{team_id}/events/last/0"
     url_details = f"https://sportapi7.p.rapidapi.com/api/v1/team/{team_id}"
     async with httpx.AsyncClient() as client:
@@ -86,7 +89,10 @@ async def analyze(request : Request, team_id: str = "32", num: int = 5):
 
 @app.get("/h2h")
 async def h2h(request : Request, team1_id : str, team2_id : str, num : int = 5):
-    id1, id2 = int(team1_id), int(team2_id)
+    try:
+        id1, id2 = int(team1_id), int(team2_id)
+    except ValueError:
+        return HTMLResponse(content="<h1>ID drużyny musi być liczbą</h1>", status_code=400)
     url1 = f"https://sportapi7.p.rapidapi.com/api/v1/team/{team1_id}/events/last/0"
     url1_details = f"https://sportapi7.p.rapidapi.com/api/v1/team/{team1_id}"
 
